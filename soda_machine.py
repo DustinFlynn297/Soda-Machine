@@ -74,17 +74,17 @@ class SodaMachine:
     def gather_change_from_register(self, change_value):
         change_list = []
         while change_value > 0:
-            if change_value >= 0.25 and self.register_has_coin("quarter"):
-                change_list.append(self.get_coin_from_register("quarter"))
+            if change_value >= 0.25 and self.register_has_coin("Quarter"):
+                change_list.append(self.get_coin_from_register("Quarter"))
                 change_value -= 0.25
-            elif change_value >= 0.10 and self.register_has_coin("dime"):
-                change_list.append(self.get_coin_from_register("dime"))
+            elif change_value >= 0.10 and self.register_has_coin("Dime"):
+                change_list.append(self.get_coin_from_register("Dime"))
                 change_value -= 0.10
-            elif change_value >= 0.05 and self.register_has_coin("nickel"):
-                change_list.append(self.get_coin_from_register("nickel"))
+            elif change_value >= 0.05 and self.register_has_coin("Dickel"):
+                change_list.append(self.get_coin_from_register("Dickel"))
                 change_value -= 0.05
-            elif change_value >= 0.01 and self.register_has_coin("penny"):
-                change_list.append(self.get_coin_from_register("penny"))
+            elif change_value >= 0.01 and self.register_has_coin("Penny"):
+                change_list.append(self.get_coin_from_register("Penny"))
                 change_value -= 0.01
             elif change_value == 0:
                 break
@@ -99,7 +99,7 @@ class SodaMachine:
     def get_coin_from_register(self, coin_name):
         """Removes and returns a coin from register"""
         for coin in self.register:
-            if coin_name == "coin_name":
+            if coin.name == coin_name:
                 self.register.remove(coin)
                 return coin
         return None
@@ -137,4 +137,4 @@ class SodaMachine:
     def deposit_coins_into_register(self, coins_list):
         """Takes in list of coins as argument, adds each coin from list to the register"""
         for coin in coins_list:
-            self.register.append(coins_list)
+            self.register.append(coin)
